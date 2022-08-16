@@ -7,9 +7,9 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
 
     if (req.nextUrl.pathname.startsWith("/checkout")) {
 
-        const session = await getToken({req, secret: process.env.NEXTAUTH_SECRET});
+        const session = await getToken({req});
 
-        console.log(process.env.NEXTAUTH_SECRET);
+        console.log({session});
         
         if(!session){
             const { protocol, host, pathname } = req.nextUrl;
