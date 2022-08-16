@@ -4,7 +4,7 @@ import { AuthLayout } from '../../components/layouts/AuthLayout';
 import NextLink from "next/link"
 import { useForm } from 'react-hook-form';
 import { isEmail } from '../../utils/validations';
-import tesloApi from '../../api/tesloApi';
+import tesloApi from '../../apiFolder/tesloApi';
 import { ErrorOutline } from '@mui/icons-material';
 import { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../../context/auth/AuthContext';

@@ -2,7 +2,7 @@ import { FC, PropsWithChildren, useReducer, useEffect } from 'react';
 import { IUser } from '../../interfaces/users';
 import { AuthContext } from './AuthContext';
 import { authReducer } from './authReducer';
-import tesloApi from '../../api/tesloApi';
+import tesloApi from '../../apiFolder/tesloApi';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { useRouter } from 'next/router';

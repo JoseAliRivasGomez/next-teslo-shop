@@ -6,7 +6,7 @@ import { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { ErrorOutline } from '@mui/icons-material';
 import { isEmail } from '../../utils/validations';
-import tesloApi from '../../api/tesloApi';
+import tesloApi from '../../apiFolder/tesloApi';
 import { useRouter } from 'next/router';
 import { AuthContext } from '../../context/auth/AuthContext';
 import { getSession, signIn } from 'next-auth/react';

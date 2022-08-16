@@ -4,7 +4,7 @@ import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import { Grid, MenuItem, Select, Typography } from '@mui/material';
 import useSWR from 'swr';
 import { IUser } from '../../interfaces/users';
-import tesloApi from '../../api/tesloApi';
+import tesloApi from '../../apiFolder/tesloApi';
 import { useState, useEffect } from 'react';
 
 
