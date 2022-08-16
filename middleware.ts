@@ -9,7 +9,7 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
 
         const session = await getToken({req, secret: process.env.NEXTAUTH_SECRET});
 
-        console.log({session});
+        console.log(process.env.NEXTAUTH_SECRET);
         
         if(!session){
             const { protocol, host, pathname } = req.nextUrl;
