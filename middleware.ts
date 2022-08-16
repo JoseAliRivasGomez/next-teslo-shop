@@ -3,11 +3,13 @@ import type { NextRequest } from 'next/server'
 import * as jose from 'jose'
 import { getToken } from 'next-auth/jwt';
 
+const secret = process.env.NEXTAUTH_SECRET;
+
 export async function middleware(req: NextRequest, ev: NextFetchEvent) {
 
     if (req.nextUrl.pathname.startsWith("/checkout")) {
 
-        const session = await getToken({req});
+        const session: any = await getToken({req, secret});
 
         console.log({session});
         
@@ -51,7 +53,9 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
     
     if (req.nextUrl.pathname.startsWith("/admin")) {
 
-        const session: any = await getToken({req, secret: process.env.NEXTAUTH_SECRET});
+        const session: any = await getToken({req, secret});
+
+        console.log({session});
         
         if(!session){
             const { protocol, host, pathname } = req.nextUrl;
