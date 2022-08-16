@@ -14,12 +14,17 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
         if(!session){
             const { protocol, host, pathname } = req.nextUrl;
 
-            console.log(`${protocol}//${host}/auth/login?p=${pathname}`);
-            
+            //console.log(`${protocol}//${host}/auth/login?p=${pathname}`);
 
-            return NextResponse.redirect(
-              `${protocol}//${host}/auth/login?p=${pathname}`
-            );
+            // return NextResponse.redirect(
+            //     `${protocol}//${host}/auth/login?p=${pathname}`
+            // );
+
+            const url = req.nextUrl.clone();
+            url.pathname = '/auth/login';
+            url.search = `?p=${pathname}`
+            return NextResponse.rewrite(url);
+
         }
 
         return NextResponse.next();
@@ -50,18 +55,27 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
         
         if(!session){
             const { protocol, host, pathname } = req.nextUrl;
-            return NextResponse.redirect(
-              `${protocol}//${host}/auth/login?p=${pathname}`
-            );
+            // return NextResponse.redirect(
+            //   `${protocol}//${host}/auth/login?p=${pathname}`
+            // );
+
+            const url = req.nextUrl.clone();
+            url.pathname = '/auth/login';
+            url.search = `?p=${pathname}`
+            return NextResponse.rewrite(url);
         }
 
         const validRoles = ['admin', 'super-user', 'SEO'];
 
         if(!validRoles.includes(session.user.role)){
             const { protocol, host } = req.nextUrl;
-            return NextResponse.redirect(
-              `${protocol}//${host}/`
-            );
+            // return NextResponse.redirect(
+            //   `${protocol}//${host}/`
+            // );
+
+            const url = req.nextUrl.clone();
+            url.pathname = '/auth/login';
+            return NextResponse.rewrite(url);
         }
 
         return NextResponse.next();
