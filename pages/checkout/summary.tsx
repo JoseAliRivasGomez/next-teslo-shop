@@ -84,7 +84,7 @@ const SummaryPage = () => {
                         <OrderSummary />
 
                         <Box sx={{mt: 3}} display="flex" flexDirection="column">
-                            <Button color='info' sx={{backgroundColor: 'secondary.main'}} className='circular-btn' fullWidth onClick={onCreateOrder} disabled={isPosting}>
+                            <Button color='info' sx={{backgroundColor: 'secondary.main', "&:hover": {backgroundColor: '#274494'}}} className='circular-btn' fullWidth onClick={onCreateOrder} disabled={isPosting}>
                                 Confirmar Orden
                             </Button>
                             <Chip color="error" label={errorMessage} sx={{display: errorMessage ? 'flex' : 'none', mt: 1}} />

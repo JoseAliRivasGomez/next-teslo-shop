@@ -7,23 +7,16 @@ const secret = process.env.NEXTAUTH_SECRET;
 
 export async function middleware(req: NextRequest, ev: NextFetchEvent) {
 
-    const session: any = await getToken({req, secret});
-
-        console.log({session});
 
     if (req.nextUrl.pathname.startsWith("/checkout")) {
 
-        
-
         //const x = req.cookies.get('next-auth.session-token') as any;
+        // console.log(req.cookies.get('next-auth.session-token'));
+        // console.log(req.cookies.get('__Secure-next-auth.session-token'));
 
         const session: any = await getToken({req, secret});
 
-        console.log({session});
-        // console.log(req.cookies.get('next-auth.session-token'));
-        // console.log(req.cookies.get('__Secure-next-auth.session-token'));
-        
-        
+        //console.log({session});
         
         if(!session){
             const { protocol, host, pathname } = req.nextUrl;
@@ -67,7 +60,7 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
 
         const session: any = await getToken({req, secret});
 
-        console.log({session});
+        //console.log({session});
         
         if(!session){
             const { protocol, host, pathname } = req.nextUrl;
