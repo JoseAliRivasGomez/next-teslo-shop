@@ -13,6 +13,10 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
         
         if(!session){
             const { protocol, host, pathname } = req.nextUrl;
+
+            console.log(`${protocol}//${host}/auth/login?p=${pathname}`);
+            
+
             return NextResponse.redirect(
               `${protocol}//${host}/auth/login?p=${pathname}`
             );
