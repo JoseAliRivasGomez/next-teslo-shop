@@ -34,7 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-/public/products
+# /public/products
 
 mongo/
 
